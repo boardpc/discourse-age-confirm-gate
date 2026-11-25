@@ -1,0 +1,33 @@
+name: Trunk Code Quality
+
+on:
+  push:
+    branches:
+      - develop
+      - main
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+permissions: read-all
+
+jobs:
+  trunk_check:
+    name: Trunk Code Quality
+    runs-on: ubuntu-latest
+    permissions:
+      checks: write
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Trunk Code Quality
+        uses: trunk-io/trunk-action@v1
+        with:
+          post-annotations: true
+          # Full-repo check on default branch pushes; hold-the-line on PRs
+          check-mode: ${{ github.event_name == 'push' && 'all' || '' }}
