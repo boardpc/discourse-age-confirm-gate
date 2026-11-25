@@ -1,0 +1,14 @@
+rules:
+  quoted-strings:
+    required: only-when-needed
+    extra-allowed: ["{|}"]
+  key-duplicates: {}
+  octal-values:
+    forbid-implicit-octal: true
+  line-length:
+    max: 120
+    level: warning
+  document-start: disable
+  comments-indentation: disable
+  truthy:
+    check-keys: false

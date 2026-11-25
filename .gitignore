@@ -1,0 +1,7 @@
+node_modules
+gems
+.eslintcache
+.trunk/*
+!.trunk/trunk.yaml
+!.trunk/configs
+!.trunk/.gitignore

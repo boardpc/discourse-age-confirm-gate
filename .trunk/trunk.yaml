@@ -1,0 +1,36 @@
+# This file controls the behavior of Trunk: https://docs.trunk.io/cli
+# To learn more about the format of this file, see https://docs.trunk.io/reference/trunk-yaml
+version: 0.1
+cli:
+  version: 1.29.0
+plugins:
+  sources:
+    - id: trunk
+      ref: v1.11.0
+      uri: https://github.com/trunk-io/plugins
+runtimes:
+  enabled:
+    - node@22.16.0
+lint:
+  enabled:
+    - actionlint@1.7.10
+    - git-diff-check
+    - markdownlint@0.50.0
+    - prettier@3.9.10
+    - taplo@0.10.0
+    - trufflehog@3.99.8
+    - yamllint@1.38.0
+  ignore:
+    - linters: [prettier]
+      paths:
+        - pnpm-lock.yaml
+        - Gemfile.lock
+actions:
+  enabled:
+    - commitlint
+    - trunk-announce
+    - trunk-check-pre-push
+    - trunk-fmt-pre-commit
+    - trunk-upgrade-available
+repo:
+  trunk_branch: develop
