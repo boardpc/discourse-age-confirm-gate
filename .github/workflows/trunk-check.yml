@@ -22,7 +22,6 @@ jobs:
     name: Trunk Code Quality
     runs-on: ubuntu-latest
     permissions:
-      checks: write
       contents: read
     steps:
       - name: Checkout
@@ -31,6 +30,7 @@ jobs:
       - name: Trunk Code Quality
         uses: trunk-io/trunk-action@v1
         with:
-          post-annotations: true
-          # Hold-the-line on push/PR; full repo on schedule / manual dispatch
+          # Hold-the-line on push/PR; full repo on schedule / manual dispatch.
+          # Do not set post-annotations here — that path expects a workflow_run
+          # event and fails with SyntaxError on push/PR jobs.
           check-mode: ${{ (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch') && 'all' || '' }}
