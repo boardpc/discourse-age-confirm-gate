@@ -1,18 +1,27 @@
 {
+  "name": "discourse-age-confirm-gate",
+  "version": "0.1.0",
   "private": true,
   "devDependencies": {
     "@discourse/lint-configs": "2.44.1",
     "@glint/ember-tsc": "1.1.1",
+    "commitizen": "^4.3.2",
     "concurrently": "^9.2.1",
+    "cz-conventional-changelog": "^3.3.0",
     "discourse": "npm:@discourse/types@2026.3.0-d02b2966",
     "ember-template-lint": "7.9.3",
     "eslint": "9.39.2",
     "lint-to-the-future": "^2.6.4",
     "lint-to-the-future-eslint": "^3.3.0",
     "prettier": "3.8.1",
+    "standard-version": "^9.5.0",
     "stylelint": "17.5.0"
   },
   "scripts": {
+    "cz": "cz",
+    "commit": "cz",
+    "release": "standard-version",
+    "release:dry-run": "standard-version --dry-run",
     "lint": "concurrently \"pnpm:lint:*(!fix)\" --names \"lint:\"",
     "lint:fix": "concurrently \"pnpm:lint:*:fix\" --names \"fix:\"",
     "lint:css": "pnpm stylelint 'assets/stylesheets/**/*.scss' --allow-empty-input",
@@ -25,6 +34,11 @@
     "lint:prettier:fix": "pnpm prettier 'assets/stylesheets/**/*.scss' '{assets,admin/assets,test}/javascripts/**/*.{js,gjs}' -w --no-error-on-unmatched-pattern",
     "lint:types": "ember-tsc -b",
     "lttf:ignore": "lint-to-the-future ignore"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   },
   "engines": {
     "node": ">= 22",

@@ -71,6 +71,33 @@ bundle install
 
 Discourse plugin CI runs via `.github/workflows/discourse-plugin.yml`. Trunk (`trunk_branch: develop`) + conventional commits via `.commitlintrc.yaml`.
 
+### Conventional commits (Commitizen)
+
+Interactive commits that match Trunk/commitlint conventional rules:
+
+```bash
+pnpm cz
+# or
+pnpm commit
+```
+
+### Release tags
+
+Version lives in `package.json` and `plugin.rb` (`# version:`). Releases use conventional commits + `standard-version` (changelog, version bump, annotated `v*` tag):
+
+```bash
+# preview only
+pnpm release:dry-run
+
+# bump version, update CHANGELOG.md + plugin.rb, commit, and tag (e.g. v0.2.0)
+pnpm release
+
+# push the release commit and tag when ready
+git push --follow-tags origin develop
+```
+
+SemVer bump is driven by commit types (`feat` → minor, `fix` → patch, `BREAKING CHANGE` → major). To tag the current `0.1.0` without bumping, use `pnpm release -- --first-release`. To force a version: `pnpm release -- --release-as 0.2.0`.
+
 ## License
 
 MIT
