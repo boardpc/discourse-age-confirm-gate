@@ -94,8 +94,13 @@ RSpec.describe DiscourseAgeConfirmGate::Access do
       expect(described_class.allowed?(Guardian.new(moderator), topic)).to eq(true)
     end
 
-    it "denies anonymous users" do
+    it "denies anonymous users when block_guests is enabled" do
       expect(described_class.allowed?(Guardian.new(nil), topic)).to eq(false)
+    end
+
+    it "allows anonymous users when block_guests is disabled" do
+      SiteSetting.age_confirm_gate_block_guests = false
+      expect(described_class.allowed?(Guardian.new(nil), topic)).to eq(true)
     end
 
     it "denies non-compliant users" do

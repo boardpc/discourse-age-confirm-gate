@@ -28,7 +28,10 @@ module DiscourseAgeConfirmGate
 
       guardian = normalize_guardian(guardian_or_user)
       return true if guardian.user&.staff?
-      return false if guardian.anonymous?
+
+      if guardian.anonymous?
+        return !SiteSetting.age_confirm_gate_block_guests
+      end
 
       user_compliant?(guardian.user)
     end
@@ -47,9 +50,8 @@ module DiscourseAgeConfirmGate
       guardian = normalize_guardian(guardian_or_user)
 
       if guardian.anonymous?
-        return true if SiteSetting.age_confirm_gate_block_guests &&
-          !SiteSetting.age_confirm_gate_guests_see_titles
-        return SiteSetting.age_confirm_gate_topic_visibility == VISIBILITY_HIDE_ENTIRELY
+        return false unless SiteSetting.age_confirm_gate_block_guests
+        return !SiteSetting.age_confirm_gate_guests_see_titles
       end
 
       SiteSetting.age_confirm_gate_topic_visibility == VISIBILITY_HIDE_ENTIRELY
