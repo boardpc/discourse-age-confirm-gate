@@ -1,0 +1,25 @@
+en:
+  js:
+    age_confirm_gate:
+      composer:
+        nsfw_label: "Mark as %{minAge}+/NSFW"
+        category_already_nsfw: "This category is already age-gated; the topic flag is optional."
+      category:
+        nsfw_label: "Mark category as %{minAge}+/NSFW"
+      preferences:
+        confirm_label: "I am %{minAge}+"
+        staff_verification_note: "Age confirmation must be verified by staff. Contact a moderator if you need access to age-gated content."
+        status_confirmed: "Confirmed for ages %{age}+"
+        status_not_confirmed: "Not confirmed"
+      signup:
+        confirm_label: "I am %{minAge}+"
+      banner:
+        title: "Age-restricted content"
+        default_message: "You must confirm that you are %{minAge}+ to view this content."
+        login_prompt: "Log in and confirm your age to continue."
+      badge:
+        nsfw: "%{minAge}+"
+      admin_user:
+        confirmed_min_age: "Confirmed minimum age"
+        clear: "Clear confirmation"
+        set_to_site_min: "Set to site minimum (%{minAge})"

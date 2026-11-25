@@ -1,0 +1,25 @@
+pl:
+  js:
+    age_confirm_gate:
+      composer:
+        nsfw_label: "Oznacz jako %{minAge}+/NSFW"
+        category_already_nsfw: "Ta kategoria jest już objęta bramką wieku; flaga tematu jest opcjonalna."
+      category:
+        nsfw_label: "Oznacz kategorię jako %{minAge}+/NSFW"
+      preferences:
+        confirm_label: "Mam %{minAge}+ lat"
+        staff_verification_note: "Potwierdzenie wieku musi zostać zweryfikowane przez personel. Skontaktuj się z moderatorem, jeśli potrzebujesz dostępu do treści z ograniczeniem wieku."
+        status_confirmed: "Potwierdzono dla wieku %{age}+"
+        status_not_confirmed: "Nie potwierdzono"
+      signup:
+        confirm_label: "Mam %{minAge}+ lat"
+      banner:
+        title: "Treść z ograniczeniem wieku"
+        default_message: "Musisz potwierdzić, że masz %{minAge}+ lat, aby zobaczyć tę treść."
+        login_prompt: "Zaloguj się i potwierdź swój wiek, aby kontynuować."
+      badge:
+        nsfw: "%{minAge}+"
+      admin_user:
+        confirmed_min_age: "Potwierdzony minimalny wiek"
+        clear: "Wyczyść potwierdzenie"
+        set_to_site_min: "Ustaw na minimum strony (%{minAge})"
