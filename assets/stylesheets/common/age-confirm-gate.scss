@@ -1,1 +1,57 @@
-/* Age confirm gate styles */
+.age-confirm-gate-banner {
+  margin: 1em 0;
+  padding: 1.25em 1.5em;
+  border: 1px solid var(--danger-medium, #c44);
+  border-radius: 4px;
+  background: var(--danger-low, #fde8e8);
+  color: var(--primary, #222);
+
+  &__title {
+    margin: 0 0 0.5em;
+    font-size: var(--font-up-2);
+  }
+
+  &__message,
+  &__login {
+    margin: 0.35em 0 0;
+  }
+}
+
+.age-confirm-gate-badge {
+  display: inline-block;
+  margin-right: 0.4em;
+  padding: 0.1em 0.45em;
+  border-radius: 3px;
+  background: var(--danger-medium, #c44);
+  color: var(--secondary, #fff);
+  font-size: var(--font-down-2);
+  font-weight: 700;
+  vertical-align: middle;
+}
+
+.age-confirm-gate-composer-nsfw,
+.age-confirm-gate-category-nsfw,
+.age-confirm-gate-signup,
+.age-confirm-gate-preferences {
+  margin: 0.75em 0;
+
+  &__note,
+  &__status {
+    margin: 0.35em 0 0;
+    color: var(--primary-medium, #666);
+    font-size: var(--font-down-1);
+  }
+}
+
+.age-confirm-gate-admin-user {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+  align-items: center;
+  margin: 0.75em 0;
+
+  input[type="number"] {
+    width: 5em;
+    margin-left: 0.35em;
+  }
+}
