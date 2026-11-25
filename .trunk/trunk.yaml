@@ -10,15 +10,24 @@ plugins:
       uri: https://github.com/trunk-io/plugins
 runtimes:
   enabled:
+    - python@3.14.4
+    - ruby@3.4.2
     - node@22.16.0
 lint:
   enabled:
-    - actionlint@1.7.10
+    - checkov@3.4.11
+    - eslint@10.15.0
+    - grype@0.122.1
+    - osv-scanner@2.7.1
+    - pinact@5.0.2
+    - rubocop@1.39.0
+    - stylelint@18.1.0
+    - actionlint@1.7.12
     - git-diff-check
-    - markdownlint@0.50.0
-    - prettier@3.9.10
+    - markdownlint@0.50.1
+    - prettier@3.10.1
     - taplo@0.10.0
-    - trufflehog@3.99.8
+    - trufflehog@3.100.1
     - yamllint@1.38.0
   ignore:
     - linters: [prettier]
