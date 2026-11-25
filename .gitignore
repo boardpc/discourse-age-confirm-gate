@@ -4,4 +4,5 @@ gems
 .trunk/*
 !.trunk/trunk.yaml
 !.trunk/configs
+!.trunk/setup-ci
 !.trunk/.gitignore
