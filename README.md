@@ -61,6 +61,14 @@ When `age_confirm_gate_staff_verification_required` is enabled:
 
 English (`en`) and Polish (`pl_PL`) client + server locales are included. Discourse’s Polish locale code is `pl_PL` (not `pl`), so plugin locale filenames and YAML root keys must match.
 
+Plugin display name (admin plugins list, plugin settings page title, sidebar) is translated via:
+
+- `admin_js.admin.site_settings.categories.discourse_age_confirm_gate`
+- `js.discourse_age_confirm_gate.title`
+- `js.discourse_age_confirm_gate.admin_navigation`
+
+Setting **descriptions** are translated under `site_settings.*`. Individual setting **titles** (humanized keys like “Age confirm gate enabled”) are **not** localizable in Discourse by design; rely on the translated descriptions.
+
 ## Development
 
 ```bash

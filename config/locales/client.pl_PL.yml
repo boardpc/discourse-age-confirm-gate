@@ -1,5 +1,13 @@
 pl_PL:
+  admin_js:
+    admin:
+      site_settings:
+        categories:
+          discourse_age_confirm_gate: Bramka potwierdzenia wieku
   js:
+    discourse_age_confirm_gate:
+      title: Bramka potwierdzenia wieku
+      admin_navigation: Bramka potwierdzenia wieku
     age_confirm_gate:
       composer:
         nsfw_label: Oznacz jako %{minAge}+/NSFW

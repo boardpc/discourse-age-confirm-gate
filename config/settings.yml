@@ -1,4 +1,4 @@
-plugins:
+discourse_age_confirm_gate:
   age_confirm_gate_enabled:
     default: true
     client: true
