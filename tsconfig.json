@@ -8,7 +8,9 @@
   ],
   "compilerOptions": {
     "paths": {
-      "discourse/plugins/discourse-age-confirm-gate/*": ["./assets/javascripts/*"],
+      "discourse/plugins/discourse-age-confirm-gate/*": [
+        "./assets/javascripts/*"
+      ],
       "discourse/plugins/discourse-age-confirm-gate/admin/*": [
         "./admin/assets/javascripts/admin/*"
       ],

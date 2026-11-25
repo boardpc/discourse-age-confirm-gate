@@ -7,6 +7,8 @@ on:
       - develop
   pull_request:
 
+permissions: read-all
+
 jobs:
   ci:
     uses: discourse/.github/.github/workflows/discourse-plugin.yml@v1

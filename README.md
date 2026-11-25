@@ -21,27 +21,27 @@ Enable **age_confirm_gate_enabled** in Admin → Settings.
 
 The gate applies when **either** the topic or its category is marked NSFW:
 
-| Category NSFW | Topic NSFW | Gate? |
-| --- | --- | --- |
-| no | no | no |
-| yes | no | **yes** |
-| no | yes | **yes** |
-| yes | yes | **yes** |
+| Category NSFW | Topic NSFW | Gate?   |
+| ------------- | ---------- | ------- |
+| no            | no         | no      |
+| yes           | no         | **yes** |
+| no            | yes        | **yes** |
+| yes           | yes        | **yes** |
 
 Marking a category NSFW gates every topic in that category, even if individual topics are unmarked.
 
 ## Site settings
 
-| Setting | Default | Description |
-| --- | --- | --- |
-| `age_confirm_gate_enabled` | `true` | Master enable switch |
-| `age_confirm_gate_min_age` | `18` | Enum: `16` / `18` / `21` |
-| `age_confirm_gate_blocked_message` | English default message (`18+`) | Banner text; blank falls back to i18n. `locale_default` supplies PL when site default locale is `pl_PL`. Reset restores the default. |
-| `age_confirm_gate_topic_visibility` | `show_with_banner` | `show_with_banner` or `hide_entirely` |
-| `age_confirm_gate_require_reconfirm_on_threshold_raise` | `true` | Require reconfirm when min age is raised |
-| `age_confirm_gate_staff_verification_required` | `false` | Only staff may set age status (self-confirm off) |
-| `age_confirm_gate_block_guests` | `true` | Block anonymous guests from NSFW content |
-| `age_confirm_gate_guests_see_titles` | `false` | When guests are blocked, still list titles + show banner |
+| Setting                                                 | Default                         | Description                                                                                                                          |
+| ------------------------------------------------------- | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| `age_confirm_gate_enabled`                              | `true`                          | Master enable switch                                                                                                                 |
+| `age_confirm_gate_min_age`                              | `18`                            | Enum: `16` / `18` / `21`                                                                                                             |
+| `age_confirm_gate_blocked_message`                      | English default message (`18+`) | Banner text; blank falls back to i18n. `locale_default` supplies PL when site default locale is `pl_PL`. Reset restores the default. |
+| `age_confirm_gate_topic_visibility`                     | `show_with_banner`              | `show_with_banner` or `hide_entirely`                                                                                                |
+| `age_confirm_gate_require_reconfirm_on_threshold_raise` | `true`                          | Require reconfirm when min age is raised                                                                                             |
+| `age_confirm_gate_staff_verification_required`          | `false`                         | Only staff may set age status (self-confirm off)                                                                                     |
+| `age_confirm_gate_block_guests`                         | `true`                          | Block anonymous guests from NSFW content                                                                                             |
+| `age_confirm_gate_guests_see_titles`                    | `false`                         | When guests are blocked, still list titles + show banner                                                                             |
 
 ## Staff verification mode
 

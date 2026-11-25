@@ -11,12 +11,12 @@ plugins:
       - 18
       - 21
   age_confirm_gate_blocked_message:
-    default: "You must confirm that you are 18+ to view this content."
+    default: You must confirm that you are 18+ to view this content.
     locale_default:
-      pl_PL: "Musisz potwierdzić, że masz 18+ lat, aby zobaczyć tę treść."
+      pl_PL: Musisz potwierdzić, że masz 18+ lat, aby zobaczyć tę treść.
     client: true
   age_confirm_gate_topic_visibility:
-    default: "show_with_banner"
+    default: show_with_banner
     client: true
     type: enum
     choices:
