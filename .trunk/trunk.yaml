@@ -20,8 +20,6 @@ lint:
     - osv-scanner@2.7.1
     - actionlint@1.7.12
     - git-diff-check
-    # 0.50.1 needs Node >=22.22.2; keep 0.50.0 until Trunk ships a newer Node runtime
-    - markdownlint@0.50.0
     - prettier@3.10.1
     - taplo@0.10.0
     - trufflehog@3.100.1
@@ -33,14 +31,14 @@ lint:
     - stylelint
     # pinact v5 breaks Trunk's -format flag; re-enable when plugins catch up
     - pinact
+    # Trunk hermetic Node is 22.16.0; modern markdownlint-cli pulls ini@7 needing
+    # Node >=22.22.2, and repo .npmrc has engine-strict=true so install fails in CI
+    - markdownlint
   ignore:
     - linters: [prettier]
       paths:
         - pnpm-lock.yaml
         - Gemfile.lock
-    - linters: [markdownlint]
-      paths:
-        - CHANGELOG.md
     # Lockfiles track Discourse lint-stack transitive deps; we don't vendor app runtimes here
     - linters: [osv-scanner, grype]
       paths:
@@ -49,6 +47,7 @@ lint:
     - linters: [yamllint]
       paths:
         - pnpm-lock.yaml
+
 actions:
   enabled:
     - commitlint

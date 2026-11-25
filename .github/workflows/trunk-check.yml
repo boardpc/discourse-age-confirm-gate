@@ -7,9 +7,12 @@ on:
       - main
   pull_request:
   workflow_dispatch:
+  schedule:
+    # Nightly full-repo check (UTC)
+    - cron: "0 4 * * *"
 
 concurrency:
-  group: ${{ github.head_ref || github.run_id }}
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
   cancel-in-progress: true
 
 permissions: read-all
@@ -23,11 +26,11 @@ jobs:
       contents: read
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Trunk Code Quality
         uses: trunk-io/trunk-action@v1
         with:
           post-annotations: true
-          # Full-repo check on default branch pushes; hold-the-line on PRs
-          check-mode: ${{ github.event_name == 'push' && 'all' || '' }}
+          # Hold-the-line on push/PR; full repo on schedule / manual dispatch
+          check-mode: ${{ (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch') && 'all' || '' }}
