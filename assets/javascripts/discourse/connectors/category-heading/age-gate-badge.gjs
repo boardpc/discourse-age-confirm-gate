@@ -8,7 +8,9 @@ export default class AgeGateCategoryBadge extends Component {
       return false;
     }
     const category = args.outletArgs?.category ?? args.category;
-    return !!(category?.age_gate_nsfw || category?.custom_fields?.age_gate_nsfw);
+    return !!(
+      category?.age_gate_nsfw || category?.custom_fields?.age_gate_nsfw
+    );
   }
 
   @service siteSettings;

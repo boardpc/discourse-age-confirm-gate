@@ -39,23 +39,23 @@ after_initialize do
   Site.preloaded_category_custom_fields << nsfw_field
 
   add_to_class(:topic, :age_gate_nsfw) do
-    ActiveModel::Type::Boolean.new.cast(custom_fields[DiscourseAgeConfirmGate::NSFW_FIELD])
+    ActiveModel::Type::Boolean.new.cast(custom_fields[DiscourseAgeConfirmGate::NSFW_FIELD]) || false
   end
 
   add_to_class(:topic, :age_gate_nsfw=) do |value|
     custom_fields[DiscourseAgeConfirmGate::NSFW_FIELD] = ActiveModel::Type::Boolean.new.cast(
       value,
-    )
+    ) || false
   end
 
   add_to_class(:category, :age_gate_nsfw) do
-    ActiveModel::Type::Boolean.new.cast(custom_fields[DiscourseAgeConfirmGate::NSFW_FIELD])
+    ActiveModel::Type::Boolean.new.cast(custom_fields[DiscourseAgeConfirmGate::NSFW_FIELD]) || false
   end
 
   add_to_class(:category, :age_gate_nsfw=) do |value|
     custom_fields[DiscourseAgeConfirmGate::NSFW_FIELD] = ActiveModel::Type::Boolean.new.cast(
       value,
-    )
+    ) || false
   end
 
   add_to_class(:user, :age_gate_confirmed_min_age) do

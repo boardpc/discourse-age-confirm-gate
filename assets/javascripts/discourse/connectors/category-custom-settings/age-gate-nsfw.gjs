@@ -26,7 +26,8 @@ export default class AgeGateNsfwCategory extends Component {
 
   #readChecked() {
     const category = this.args.outletArgs?.category;
-    const value = category?.custom_fields?.[NSFW_FIELD] ?? category?.age_gate_nsfw;
+    const value =
+      category?.custom_fields?.[NSFW_FIELD] ?? category?.age_gate_nsfw;
     return value === true || value === "true";
   }
 

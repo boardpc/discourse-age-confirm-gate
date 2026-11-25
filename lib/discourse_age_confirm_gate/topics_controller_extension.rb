@@ -12,8 +12,7 @@ module DiscourseAgeConfirmGate
     def guard_age_gate_nsfw_update!
       return if guardian.is_staff?
 
-      custom_fields =
-        params[:custom_fields].presence || params.dig(:topic, :custom_fields).presence
+      custom_fields = params[:custom_fields].presence || params.dig(:topic, :custom_fields).presence
       return if custom_fields.blank?
       return unless custom_fields.key?(NSFW_FIELD) || custom_fields.key?(NSFW_FIELD.to_sym)
 

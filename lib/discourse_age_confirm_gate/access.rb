@@ -29,9 +29,7 @@ module DiscourseAgeConfirmGate
       guardian = normalize_guardian(guardian_or_user)
       return true if guardian.user&.staff?
 
-      if guardian.anonymous?
-        return !SiteSetting.age_confirm_gate_block_guests
-      end
+      return !SiteSetting.age_confirm_gate_block_guests if guardian.anonymous?
 
       user_compliant?(guardian.user)
     end

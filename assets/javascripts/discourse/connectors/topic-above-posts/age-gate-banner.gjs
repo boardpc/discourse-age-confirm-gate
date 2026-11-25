@@ -1,7 +1,7 @@
 import Component from "@glimmer/component";
 import { service } from "@ember/service";
+import { trustHTML } from "@ember/template";
 import { i18n } from "discourse-i18n";
-import { htmlSafe } from "@ember/template";
 
 export default class AgeGateBanner extends Component {
   static shouldRender(args, context) {
@@ -39,7 +39,7 @@ export default class AgeGateBanner extends Component {
       <h2 class="age-confirm-gate-banner__title">
         {{i18n "age_confirm_gate.banner.title"}}
       </h2>
-      <p class="age-confirm-gate-banner__message">{{htmlSafe this.message}}</p>
+      <p class="age-confirm-gate-banner__message">{{trustHTML this.message}}</p>
       {{#if this.showLoginPrompt}}
         <p class="age-confirm-gate-banner__login">
           {{i18n "age_confirm_gate.banner.login_prompt"}}

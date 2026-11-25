@@ -13,7 +13,6 @@ export default class AgeGateConfirmPreferences extends Component {
   }
 
   @service siteSettings;
-  @service currentUser;
 
   @tracked checked = this.#isConfirmed();
 
@@ -30,7 +29,10 @@ export default class AgeGateConfirmPreferences extends Component {
   }
 
   get confirmedAge() {
-    return this.model?.custom_fields?.[USER_AGE_FIELD] ?? this.model?.[USER_AGE_FIELD];
+    return (
+      this.model?.custom_fields?.[USER_AGE_FIELD] ??
+      this.model?.[USER_AGE_FIELD]
+    );
   }
 
   get statusText() {
@@ -73,7 +75,9 @@ export default class AgeGateConfirmPreferences extends Component {
 
       {{#if this.staffVerificationRequired}}
         <div class="controls">
-          <p class="age-confirm-gate-preferences__status">{{this.statusText}}</p>
+          <p
+            class="age-confirm-gate-preferences__status"
+          >{{this.statusText}}</p>
           <p class="age-confirm-gate-preferences__note">
             {{i18n "age_confirm_gate.preferences.staff_verification_note"}}
           </p>
