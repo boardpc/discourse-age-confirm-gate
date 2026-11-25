@@ -1,8 +1,8 @@
-pl:
+pl_PL:
   site_settings:
     age_confirm_gate_enabled: "Włącz bramkę potwierdzenia wieku dla treści NSFW (tematów i kategorii)"
     age_confirm_gate_min_age: "Minimalny wiek, który użytkownicy muszą potwierdzić, aby zobaczyć treści NSFW"
-    age_confirm_gate_blocked_message: "Własny komunikat wyświetlany przy zablokowanej treści NSFW (puste = domyślny)"
+    age_confirm_gate_blocked_message: "Komunikat wyświetlany przy zablokowanej treści NSFW. Reset przywraca domyślny komunikat (domyślna wartość ustawienia jest po angielsku)."
     age_confirm_gate_topic_visibility: "Jak tematy NSFW wyglądają dla użytkowników bez potwierdzenia wieku"
     age_confirm_gate_require_reconfirm_on_threshold_raise: "Wymagaj ponownego potwierdzenia, gdy podniesiony zostanie minimalny wiek"
     age_confirm_gate_staff_verification_required: "Tylko personel może ustawiać status potwierdzenia wieku (wyłączone samodzielne potwierdzenie)"
