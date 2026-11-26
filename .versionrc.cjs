@@ -2,6 +2,13 @@ module.exports = {
   header: "# Changelog\n",
   releaseCommitMessageFormat: "chore: release {{currentTag}}",
   tagPrefix: "v",
+  // Explicit: bump versions + changelog + commit + annotated tag (never tag-only)
+  skip: {
+    bump: false,
+    changelog: false,
+    commit: false,
+    tag: false,
+  },
   types: [
     { type: "feat", section: "Features" },
     { type: "fix", section: "Bug Fixes" },

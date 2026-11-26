@@ -94,22 +94,28 @@ pnpm cz
 pnpm commit
 ```
 
-### Release tags
+### Release (version bump + git tag)
 
-Version lives in `package.json` and `plugin.rb` (`# version:`). Releases use conventional commits + `standard-version` (changelog, version bump, annotated `v*` tag):
+`pnpm release` uses `standard-version` and always does **all** of the following (not tag-only):
+
+1. Bump `package.json` version
+2. Bump `# version:` in `plugin.rb`
+3. Update `CHANGELOG.md`
+4. Create a release commit (`chore: release vX.Y.Z`)
+5. Create an annotated git tag `vX.Y.Z`
 
 ```bash
-# preview only
+# preview the bump/changelog/tag without writing anything
 pnpm release:dry-run
 
-# bump version, update CHANGELOG.md + plugin.rb, commit, and tag (e.g. v0.2.0)
+# perform bump + commit + tag (e.g. v0.2.0)
 pnpm release
 
-# push the release commit and tag when ready
+# publish the release commit and tag
 git push --follow-tags origin develop
 ```
 
-SemVer bump is driven by commit types (`feat` → minor, `fix` → patch, `BREAKING CHANGE` → major). To tag the current `0.1.0` without bumping, use `pnpm release -- --first-release`. To force a version: `pnpm release -- --release-as 0.2.0`.
+SemVer is driven by conventional commit types (`feat` → minor, `fix` → patch, `BREAKING CHANGE` → major). Force a version with `pnpm release -- --release-as 0.2.0`. For the very first tag of the current version without bumping again: `pnpm release -- --first-release`.
 
 ## License
 
