@@ -22,12 +22,31 @@ module DiscourseAgeConfirmGate
       end
     end
 
+    def always_allow_group_ids
+      ids =
+        if SiteSetting.respond_to?(:age_confirm_gate_always_allow_groups_map)
+          Array(SiteSetting.age_confirm_gate_always_allow_groups_map).map(&:to_i)
+        else
+          SiteSetting.age_confirm_gate_always_allow_groups.to_s.split("|").map(&:to_i)
+        end
+      ids.reject(&:zero?)
+    end
+
+    def in_always_allow_group?(guardian_or_user)
+      ids = always_allow_group_ids
+      return false if ids.blank?
+
+      guardian = normalize_guardian(guardian_or_user)
+      guardian.in_any_groups?(ids)
+    end
+
     def allowed?(guardian_or_user, topic)
       return true unless SiteSetting.age_confirm_gate_enabled
       return true unless nsfw?(topic)
 
       guardian = normalize_guardian(guardian_or_user)
       return true if guardian.user&.staff?
+      return true if in_always_allow_group?(guardian)
 
       return !SiteSetting.age_confirm_gate_block_guests if guardian.anonymous?
 

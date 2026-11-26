@@ -10,6 +10,9 @@ pl_PL:
       Wymagaj ponownego potwierdzenia, gdy podniesiony zostanie minimalny wiek
     age_confirm_gate_staff_verification_required: >-
       Tylko personel może ustawiać status potwierdzenia wieku (wyłączone samodzielne potwierdzenie)
+    age_confirm_gate_always_allow_groups: >-
+      Członkowie tych grup mogą uzyskiwać dostęp do treści NSFW (tematów i kategorii)
+      bez potwierdzenia wieku
     age_confirm_gate_block_guests: Blokuj anonimowych gości przed treściami NSFW
     age_confirm_gate_guests_see_titles: >-
       Gdy goście są zablokowani, nadal pokazuj tytuły NSFW i baner blokady

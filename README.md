@@ -40,8 +40,13 @@ Marking a category NSFW gates every topic in that category, even if individual t
 | `age_confirm_gate_topic_visibility`                     | `show_with_banner`              | `show_with_banner` or `hide_entirely`                                                                                                |
 | `age_confirm_gate_require_reconfirm_on_threshold_raise` | `true`                          | Require reconfirm when min age is raised                                                                                             |
 | `age_confirm_gate_staff_verification_required`          | `false`                         | Only staff may set age status (self-confirm off)                                                                                     |
+| `age_confirm_gate_always_allow_groups`                  | _(empty)_                       | Group members bypass age confirmation for NSFW content                                                                               |
 | `age_confirm_gate_block_guests`                         | `true`                          | Block anonymous guests from NSFW content                                                                                             |
 | `age_confirm_gate_guests_see_titles`                    | `false`                         | When guests are blocked, still list titles + show banner                                                                             |
+
+## Always-allow groups
+
+Members of groups listed in `age_confirm_gate_always_allow_groups` can access NSFW topics/categories **without** age confirmation (same bypass class as staff for the age check). Staff still always bypass regardless of this list.
 
 ## Staff verification mode
 

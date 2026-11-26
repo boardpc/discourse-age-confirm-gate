@@ -9,6 +9,8 @@ en:
       Require users to reconfirm when the minimum age setting is raised
     age_confirm_gate_staff_verification_required: >-
       Only staff may set a user's age confirmation status (self-confirm disabled)
+    age_confirm_gate_always_allow_groups: >-
+      Members of these groups may access NSFW topics and categories without age confirmation
     age_confirm_gate_block_guests: Block anonymous guests from NSFW content
     age_confirm_gate_guests_see_titles: >-
       When guests are blocked, still show NSFW titles and the blocked banner

@@ -28,6 +28,12 @@ discourse_age_confirm_gate:
   age_confirm_gate_staff_verification_required:
     default: false
     client: true
+  age_confirm_gate_always_allow_groups:
+    default: ""
+    type: group_list
+    list_type: compact
+    allow_any: false
+    client: true
   age_confirm_gate_block_guests:
     default: true
     client: true

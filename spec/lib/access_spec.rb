@@ -112,6 +112,19 @@ RSpec.describe DiscourseAgeConfirmGate::Access do
       expect(described_class.allowed?(Guardian.new(user), topic)).to eq(true)
     end
 
+    it "allows members of always-allow groups without age confirmation" do
+      group = Fabricate(:group)
+      group.add(user)
+      SiteSetting.age_confirm_gate_always_allow_groups = group.id.to_s
+      expect(described_class.allowed?(Guardian.new(user), topic)).to eq(true)
+    end
+
+    it "does not allow users outside always-allow groups" do
+      group = Fabricate(:group)
+      SiteSetting.age_confirm_gate_always_allow_groups = group.id.to_s
+      expect(described_class.allowed?(Guardian.new(user), topic)).to eq(false)
+    end
+
     it "allows everyone when topic is not effectively NSFW" do
       mark_topic_nsfw!(false)
       expect(described_class.allowed?(Guardian.new(nil), topic)).to eq(true)
