@@ -1,6 +1,6 @@
 {
   "name": "discourse-age-confirm-gate",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "devDependencies": {
     "@discourse/lint-configs": "2.44.1",

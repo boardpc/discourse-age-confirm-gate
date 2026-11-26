@@ -2,7 +2,7 @@
 
 # name: discourse-age-confirm-gate
 # about: Age-gate NSFW topics and categories; require user age confirmation without storing DOB
-# version: 0.1.0
+# version: 0.1.1
 # authors: BoardPC
 # url: https://github.com/boardpc/discourse-age-confirm-gate
 # required_version: 3.3.0
